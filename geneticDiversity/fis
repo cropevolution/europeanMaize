@@ -1,0 +1,3 @@
+#Fis
+
+vcftools --vcf /path/to/filtered.vcf --het --out filtered
