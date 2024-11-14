@@ -1,0 +1,9 @@
+Local selection shaped the diversity of European maize landraces.
+Takou M, Schulz K & Stetter MG. bioRXiv, 2024-06.
+
+Scripts for estimating the genetic diversity, differentiation, climatic analysis, genetic load as well as merging of the datasets.
+
+./DatasetMerging :: Here are contained all the scripts used for merging the datasets.
+./geneticDiversity :: Here are all the scripts related to Fis, Hexp, Fst, PCA, FEEMS
+./geneticLoad :: Here are the scripts to get the genetic load based on GERP scores & selscan.
+./statistics :: Here are all the statistics and plots done in R, including all the redundancy analysis.
