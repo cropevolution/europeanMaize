@@ -1,0 +1,6 @@
+#command line examples to run the scripts in the folder ./geneticLoad
+#Note that both of those scripts are run per chromosome.
+
+python3 ./path/to/chrom.gerpScores.txt /path/to/chromosome.vcf name_for_output
+
+python3 /path/to/chrom.gerpScores.txt /path/to/chromosome.vcf name_for_output

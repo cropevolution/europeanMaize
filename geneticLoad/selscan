@@ -1,0 +1,13 @@
+#Example of the command line for running selscan on each chromosome as in the paper.
+
+oline='1/0' 
+nline='0/1' 
+sed -i -i "s%$oline%$nline%g" maizeEU.KE.filtered.recode.vcf 
+vcftools --vcf maizeEU.KE.filtered.recode.vcf --max-missing 1 --recode --out maizeEU.DH.KE.filtered.noMissing --chr 1 --chr 2 --chr 3 --chr 4 --chr 5 --chr 6 --chr 7 --chr 8 --chr 9 --chr 10
+
+#run per chromosome
+vcftools --vcf maizeEU.DH.KE.filtered.noMissing.recode.vcf --chr 1 --recode --out maizeEU.DH.KE.filtered.noMissing.chr1 
+selscan --ihs --vcf maizeEU.DH.KE.filtered.noMissing.chr1.recode.vcf  --pmap --out maizeEU.KE.DH.chr1.selscal --unphased 
+
+#normalize for all chromosomes at once
+norm --ihs --files maizeEU.KE.DH.chr1.selscal.ihs.out maizeEU.KE.DH.chr2.selscal.ihs.out maizeEU.KE.DH.chr3.selscal.ihs.out maizeEU.KE.DH.chr4.selscal.ihs.out maizeEU.KE.DH.chr5.selscal.ihs.out maizeEU.KE.DH.chr6.selscal.ihs.out maizeEU.KE.DH.chr7.selscal.ihs.out maizeEU.KE.DH.chr8.selscal.ihs.out maizeEU.KE.DH.chr9.selscal.ihs.out maizeEU.KE.DH.chr10.selscal.ihs.out 
