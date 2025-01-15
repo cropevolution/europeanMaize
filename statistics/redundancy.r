@@ -174,7 +174,10 @@ cor.test(variables$DistSpain, variables$wc2.1_30s_bio_9, method="spearman")
 cor.test(variables$DistSpain, variables$wc2.1_30s_bio_15, method="spearman")
 cor.test(variables$DistSpain, variables$wc2.1_30s_bio_19, method="spearman")
 
-variables$East <- variables$Longitude > 2.35
+variables$East <- variables$Longitude > 3.4
+variables[variables$Abb. == "ND",27] <- FALSE
+variables[variables$Abb. == "SO",27] <- FALSE
+variables[variables$Abb. == "BA",27] <- FALSE
 
 for (i in 6:24){
   print(cor.test(variables[,i], variables$DistSpain, method="spearman"))
@@ -260,8 +263,15 @@ head(envirDist)
 ggplot(envirDist, aes(x=EnvDist, y=Fst)) + geom_point() + geom_smooth(method="lm")
 ggplot(envirDist, aes(x=EnvDist, y=SlatkinDistance)) + geom_point() + geom_smooth(method="lm")
 
-envirDist$East <- envirDist$Longitude.x > 2.35
-envirDist$East2 <- envirDist$Longitude.y > 2.35
+envirDist$East <- envirDist$Longitude.x > 3.34
+envirDist$East2 <- envirDist$Longitude.y > 3.34
+envirDist[envirDist$Pop1 == "BA", 11] <- FALSE
+envirDist[envirDist$Pop1 == "SO", 11] <- FALSE
+envirDist[envirDist$Pop1 == "ND", 11] <- FALSE
+
+envirDist[envirDist$Pop2 == "BA", 12] <- FALSE
+envirDist[envirDist$Pop2 == "SO", 12] <- FALSE
+envirDist[envirDist$Pop2 == "ND", 12] <- FALSE
 envirDist$Cluster <- envirDist$East==envirDist$East2
 
 tiff("maizeEU.envir.Fst.tiff", units="in", width=7, height=7, res=600)
